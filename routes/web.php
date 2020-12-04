@@ -23,6 +23,5 @@ Route::get('posts/{post}', 'App\Http\Controllers\PostsController@show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/new-post', function () {
-    return view('new-post');
-})->name('new-post');
+Route::middleware(['auth:sanctum', 'verified'])->get('/new-post', 'App\Http\Controllers\PostsController@show_categories')->name('new-post');
+Route::middleware(['auth:sanctum', 'verified'])->post('/new-post', 'App\Http\Controllers\PostsController@create')->name('create-post');
