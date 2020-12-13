@@ -16,7 +16,7 @@
 
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <nav class="navbar navbar-expand-md navbar-light bg-light" style="position: fixed !important; top: 0;  width: 100%;">
-        <img class="navbar-brand" href="img/snckof.png">Snack Overflow</a>
+        <a class="navbar-brand" href="/" style="width:150px; margin-top:0px;"><img src="{{ URL::to('/') }}/img/snackoverflow.png" class="navbar-brand" style="height:60px;"></a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +30,7 @@
                 </li>
                 <li class="{{Request :: path() === '2' ? 'active' : ''}}">
                     <a class="nav-link" href="#">Despre noi</a>
-    </li>
+                </li>
             </ul>
             <form class="form-inline mx-auto my-2 my-lg-0" style="align-content:center;" method="get" action="/search">
                 <input class="form-control mr-sm-2" type="search" placeholder="Caută" aria-label="Search" name="q">
@@ -41,12 +41,12 @@
                 @auth
                 <li class="nav-item dropdown {{Request :: path() === 'login' ? 'active' : ''}}">
                     <a class="nav-link dropdown-toggle" href="{{ url('/dashboard') }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <button class="btn btn-outline-secondary" type="submit">Dashboard</button>
+                        <button class="btn btn-outline-secondary" type="submit">Dashboard</button>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{route('myposts.index')}}">Postările mele</a>
                         <a class="dropdown-item" href="/user/profile">Profilul meu</a>
                         <a class="dropdown-item" href="/logout">Deconectare</a>
-                        <a class="dropdown-item" href="/new-post">Postare nouă</a>
                     </div>
                 </li>
                 @else
@@ -75,7 +75,7 @@
 
 <body>
 
-    <div class="container" style="  margin-top: 70px !important;">
+    <div class="container" style="  margin-top: 100px !important;">
         @yield('content')
     </div>
 
